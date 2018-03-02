@@ -1,5 +1,3 @@
-TEST
-
 function drag(id)
 {
 	var obj = document.getElementById(id);
@@ -13,7 +11,10 @@ function drag(id)
 			obj.style.left = ev.pageX - disX + 'px';
 			obj.style.top = ev.pageY - disY + 'px';
 		};
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
 	}
-	obj.onmousemove = function(){};
-	obj.onmouseup = function(){};
+	return false;
 }
